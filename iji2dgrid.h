@@ -222,7 +222,7 @@ IJI2DGRID_API unsigned iji2dgrid_get_overlaps(struct iji2dgrid *self,
 
 /* helpers for overlaps with boxes and circles (by its aabb-extents) */
 #define iji2dgrid_get_box_overlaps(self, minx, miny, maxx, maxy, handles, max_num_handles) iji2dgrid_get_overlaps((self), iji2dgrid_coordinate((self), (minx), (miny)), iji2dgrid_coordinate((self), (maxx), (maxy)), (handles), (max_num_handles))
-#define iji2dgrid_get_circle_overlaps(self, minx, miny, radius, handles, max_num_handles) iji2dgrid_get_overlaps((self), iji2dgrid_coordinate((self), (minx)-(radius), (miny)-(radius)), iji2dgrid_coordinate((self), (maxx)+(radius), (maxy)+(radius)), (handles), (max_num_handles))
+#define iji2dgrid_get_circle_overlaps(self, centerx, centery, radius, handles, max_num_handles) iji2dgrid_get_overlaps((self), iji2dgrid_coordinate((self), (centerx)-(radius), (centery)-(radius)), iji2dgrid_coordinate((self), (centerx)+(radius), (centery)+(radius)), (handles), (max_num_handles))
 
 /* compute the cell-id from a cell coordinate (x, y) */
 #define iji2dgrid_cellid(self, cellx, celly) ((cellx)+(self)->ncols*(celly))
